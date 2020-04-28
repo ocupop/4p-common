@@ -1,22 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import TextInput from './fields/TextInput'
+import TextArea from './fields/TextArea'
+import SwitchInput from './fields/SwitchInput'
 
-import styles from './styles.css'
-
-export default class ExampleComponent extends Component {
-  static propTypes = {
-    text: PropTypes.string
-  }
-
-  render() {
-    const {
-      text
-    } = this.props
-
-    return (
-      <div className={styles.test}>
-        Example Component: {text}
-      </div>
-    )
-  }
-}
+export { TextInput, TextArea, SwitchInput }

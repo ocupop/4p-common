@@ -5,11 +5,15 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "4p-common": "link:..",
+    "bootstrap": "^4.4.1",
+    "formik": "^2.1.4",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "^1.1.4",
-    "4p-common": "link:.."
+    "semantic-ui-react": "^0.88.2",
+    "yup": "^0.28.1"
   },
   "scripts": {
     "start": "react-scripts start",
