@@ -19,7 +19,9 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "checkLint": "eslint '**/*.js' --ignore-pattern node_modules/",
+    "lint": "eslint --fix '**/*.js' --ignore-pattern node_modules/"
   },
   "peerDependencies": {
     "bootstrap": "^4.4.1",
@@ -29,6 +31,7 @@
     "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
+    "@ocupop/eslint-config": "0.0.11",
     "@svgr/rollup": "^2.4.1",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
