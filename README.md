@@ -1,17 +1,20 @@
 # 4p-common
-
-> Common utilities &amp; components shared across the 4p project
-
-[![NPM](https://img.shields.io/npm/v/4p-common.svg)](https://www.npmjs.com/package/4p-common) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
-
 ## Install
-
 ```bash
 npm install --save 4p-common
 ```
 
-## Usage
+## Commands
 
+## Components
+### Fields
+Formik Fields:
+- AddressInput
+- CreateSelect
+- CurrencyInput
+- ... @TODO add the rest and link to
+
+## Usage
 ```jsx
 import React, { Component } from 'react'
 
@@ -26,6 +29,9 @@ class Example extends Component {
 }
 ```
 
-## License
+## Developing
+### src/
+Where our common components will be setup and created
 
-MIT © [cdnicoll](https://github.com/cdnicoll)
+### example/
+A sandbox within this project to develop against. We pull components in from the `src/` directory and demonstrate how they're used
