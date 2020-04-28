@@ -4,6 +4,7 @@
   "description": "Common utilities &amp; components shared across the 4p project",
   "author": "cdnicoll",
   "license": "MIT",
+  "private": false,
   "repository": "ocupop/4p-common",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
