@@ -3,13 +3,14 @@ import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
 import * as Fields4P from '4p-common'
+import FormikDebug from './components/FormikDebug'
 //import { TextInput } from '4p-common'
 
 const validationSchema = Yup.object().shape({
-  // textInput: Yup.string()
-  //   .min(5, 'Too Short!')
-  //   .max(20, 'Too Long!')
-  //   .required('Required'),
+  textInput: Yup.string()
+    .min(5, 'Too Short!')
+    .max(20, 'Too Long!')
+    .required('Required'),
 })
 
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
               onChange={(e, value) => setFieldValue('switchInput', value.checked)}
               label="Switch Input"
             />
+            <FormikDebug />
           </Form>
         )}
       </Formik>

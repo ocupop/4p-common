@@ -1,8 +1,12 @@
 import React from 'react'
 import Label from './label'
 
-const TextInput = ({ className, hint, type, label, placeholder, required, field, form: { errors, touched } }) => {
-  const status = touched[field.name] && errors[field.name] ? `is-invalid` : ``
+const TextInput = (props) => {
+  const {
+    className, hint, type, label, placeholder, required, field, form: { errors, touched },
+  } = props
+
+  const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
   return (
     <div className={`form-group ${className}`}>
       <Label label={label} hint={hint} />

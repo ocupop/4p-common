@@ -1,7 +1,7 @@
 # 4p-common
 ## Install
 ```bash
-npm install --save 4p-common
+npm install --save @ocupop/4p-common
 ```
 
 ## Commands
@@ -20,6 +20,7 @@ Formik Fields:
 - ... @TODO add the rest and link to
 
 ## Usage
+@TODO This needs to be updated with examples
 ```jsx
 import React, { Component } from 'react'
 

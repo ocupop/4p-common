@@ -5,7 +5,7 @@ import Label from './label'
 const groupStyles = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 }
 const groupBadgeStyles = {
   backgroundColor: '#EBECF0',
@@ -17,10 +17,10 @@ const groupBadgeStyles = {
   lineHeight: '1',
   minWidth: 1,
   padding: '0.16666666666667em 0.5em',
-  textAlign: 'center'
+  textAlign: 'center',
 }
 
-const formatGroupLabel = data => (
+const formatGroupLabel = (data) => (
   <div style={groupStyles}>
     <span>{data.label}</span>
     <span style={groupBadgeStyles}>{data.options.length}</span>
@@ -39,7 +39,7 @@ const SelectInput = ({
   isSearchable,
   type,
   onChange,
-  options
+  options,
 }) => {
   return (
     <div className={`form-group ${className}`}>
@@ -57,14 +57,14 @@ const SelectInput = ({
         isClearable
         className="react-select-container"
         classNamePrefix="react-select"
-        theme={theme => ({
+        theme={(theme) => ({
           ...theme,
           borderRadius: 0,
           colors: {
             ...theme.colors,
             primary25: '#EBECF0',
-            primary: '#172B4D'
-          }
+            primary: '#172B4D',
+          },
         })}
       />
     </div>

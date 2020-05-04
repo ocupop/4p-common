@@ -1,8 +1,13 @@
 import React from 'react'
-import Hint from './hint'
 import { Checkbox } from 'semantic-ui-react'
+import Hint from './hint'
 
-const SwitchInput = ({ className, hint, type, label, field, onChange, toggle, form: { errors, touched } }) => {
+const SwitchInput = ({
+  className, hint, type, label, field, onChange, toggle, form: {
+    errors,
+    touched,
+  },
+}) => {
   // deleting field.value, this throws an error with the Checkbox Element.
   delete field.value
   return (
