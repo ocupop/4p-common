@@ -17,7 +17,7 @@ const FieldHint = ({ content }) => {
 }
 
 FieldHint.propTypes = {
-  content: PropTypes.string
+  content: PropTypes.string,
 }
 
 export default FieldHint

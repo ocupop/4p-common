@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
-import * as Fields4P from '4p-common'
+import {TextInput, TextArea, SwitchInput, SelectInput} from '4p-common'
 import FormikDebug from './components/FormikDebug'
 //import { TextInput } from '4p-common'
 
@@ -36,7 +36,7 @@ const App = () => {
               name="textInput"
               type="text"
               hint="This is a hint"
-              component={Fields4P.TextInput}
+              component={TextInput}
               onChange={value => setFieldValue('textInput', value)}
               placeholder="Enter Text..."
               label="Text Input"
@@ -45,7 +45,7 @@ const App = () => {
               name="textArea"
               type="text"
               hint="This is a hint"
-              component={Fields4P.TextArea}
+              component={TextArea}
               onChange={value => setFieldValue('textArea', value)}
               placeholder="Enter Text..."
               label="Text Area"
@@ -54,9 +54,22 @@ const App = () => {
               name="switchInput"
               type="checkbox"
               hint="This is a hint"
-              component={Fields4P.SwitchInput}
+              component={SwitchInput}
               onChange={(e, value) => setFieldValue('switchInput', value.checked)}
               label="Switch Input"
+            />
+            <Field
+              name="selectInput"
+              type="text"
+              hint="This is a hint"
+              component={SelectInput}
+              options={[
+                {label: "label 1", value: "l1"},
+                {label: "label 2", value: "l2"},
+                {label: "label 3", value: "l3"}
+              ]}
+              onChange={value => setFieldValue("selectInput", value)}
+              label="Select Input"
             />
             <FormikDebug />
           </Form>

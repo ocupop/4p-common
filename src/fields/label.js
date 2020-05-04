@@ -13,7 +13,7 @@ const label = ({ hint, label }) => {
 
 label.propTypes = {
   label: PropTypes.string,
-  hint: PropTypes.string
+  hint: PropTypes.string,
 }
 
 export default label
