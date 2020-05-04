@@ -5,11 +5,7 @@ npm install --save @ocupop/4p-common
 ```
 
 ## Commands
-  - `./`
-    - `yarn start`: rolls up the `src` directory and watches for changes
-
-  - `./example`
-    - `yarn start`: Starts the demo application
+  `yarn start`: rolls up the `src` directory and watches for changes
 
 ## Components
 ### Fields
@@ -37,11 +33,14 @@ class Example extends Component {
 
 ## Developing
 ### src/
-Where our common components will be setup and created
+Where our common components will be setup and created. You'll want to run `yarn start` to roll the changes each time there are updates to them
 
 ---
 ### example/
-A sandbox within this project to develop against. We pull components in from the `src/` directory and demonstrate how they're used
+A sandbox within this project to develop against. We pull components in from the `src/` directory and demonstrate how they're used. To develop, within this directory run `yarn start` to start the application. Note that the root level component directory needs to be watching for component changes.
+
+The 4P-Common component is simply [linked](https://docs.npmjs.com/cli/link.html) and pulls in changes.
+
 
 ## Publishing
 ```
