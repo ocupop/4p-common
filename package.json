@@ -24,11 +24,12 @@
   },
   "peerDependencies": {
     "bootstrap": "^4.4.1",
+    "draft-js": "^0.11.5",
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
     "react-dom": "^15.0.0 || ^16.0.0",
     "react-draft-wysiwyg": "^1.14.5",
-    "draft-js": "^0.11.5",
+    "react-text-mask": "^5.4.3",
     "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
@@ -66,6 +67,8 @@
   "dependencies": {
     "draft-js": "^0.11.5",
     "react-draft-wysiwyg": "^1.14.5",
-    "react-select": "^3.1.0"
+    "react-select": "^3.1.0",
+    "react-text-mask": "^5.4.3",
+    "text-mask-addons": "^3.8.0"
   }
 }

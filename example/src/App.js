@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
-import {TextInput, TextArea, RichEditor, SwitchInput, SelectInput} from '4p-common'
+import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput} from '4p-common'
 import FormikDebug from './components/FormikDebug'
 import { convertToRaw } from 'draft-js'
 
@@ -81,6 +81,15 @@ const App = () => {
               onChange={value => setFieldValue("richInput", convertToRaw(value.getCurrentContent()))}
               label="Rich Text Input"
             />
+            <Field
+              className="mb-0"
+              name="numberInput"
+              type="number"
+              component={NumberInput}
+              onChange={value => setFieldValue("numberInput", value)}
+              placeholder="0"
+              maskOptions={{ allowDecimal: false, requireDecimal: false }}
+            /> 
             <FormikDebug />
           </Form>
         )}
