@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
-import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput} from '4p-common'
+import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput, EmailInput, PhoneInput} from '4p-common'
 import FormikDebug from './components/FormikDebug'
 import { convertToRaw } from 'draft-js'
 
@@ -84,12 +84,29 @@ const App = () => {
             <Field
               className="mb-0"
               name="numberInput"
+              label="Number Input"
               type="number"
               component={NumberInput}
               onChange={value => setFieldValue("numberInput", value)}
               placeholder="0"
               maskOptions={{ allowDecimal: false, requireDecimal: false }}
             /> 
+            <Field
+              name="emailInput"
+              type="text"
+              hint="This is a hint"
+              component={EmailInput}
+              placeholder="___@___.___"
+              label="Email Input"
+            />
+            <Field
+              name="phoneInput"
+              type="text"
+              hint="This is a hint"
+              component={PhoneInput}
+              placeholder="(___) ___-____"
+              label="Phone Input"
+            />
             <FormikDebug />
           </Form>
         )}

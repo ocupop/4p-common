@@ -1,11 +1,13 @@
 import React from 'react'
-import Label from './label'
 import MaskedInput from 'react-text-mask'
+import Label from './label'
 
 const phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
 
-const PhoneInput = ({ className, hint, type, label, placeholder, required, field, form: { errors, touched } }) => {
-  const status = touched[field.name] && errors[field.name] ? `is-invalid` : ``
+const PhoneInput = ({
+  className, hint, type, label, placeholder, required, field, form: { errors, touched },
+}) => {
+  const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
 
   return (
     <div className={`form-group ${className}`}>
