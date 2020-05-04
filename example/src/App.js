@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
-import {TextInput, TextArea, SwitchInput, SelectInput} from '4p-common'
+import {TextInput, TextArea, RichEditor, SwitchInput, SelectInput} from '4p-common'
 import FormikDebug from './components/FormikDebug'
-//import { TextInput } from '4p-common'
+import { convertToRaw } from 'draft-js'
 
 const validationSchema = Yup.object().shape({
   textInput: Yup.string()
@@ -20,7 +20,8 @@ const App = () => {
     switchInput: false
   }
   return (
-    <div>
+    <section>
+      <div className="container">
       <h1>hello world</h1>
       <Formik
         enableReinitialize
@@ -71,11 +72,21 @@ const App = () => {
               onChange={value => setFieldValue("selectInput", value)}
               label="Select Input"
             />
+            <Field
+              name="richInput"
+              type="text"
+              hint="This is a hint"
+              component={RichEditor}
+              placeholder="Enter Text..."
+              onChange={value => setFieldValue("richInput", convertToRaw(value.getCurrentContent()))}
+              label="Rich Text Input"
+            />
             <FormikDebug />
           </Form>
         )}
       </Formik>
     </div>
+    </section>
   )
 }
 

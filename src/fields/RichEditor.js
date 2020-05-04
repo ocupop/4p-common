@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Label from './label'
-// import { EditorState, convertToRaw } from 'draft-js'
 import { Editor } from 'react-draft-wysiwyg'
+import Label from './label'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
-const RichEditor = ({ label, hint, onChange, className }) => {
+const RichEditor = ({
+  label, hint, onChange, className,
+}) => {
   return (
     <div className={`form-group ${className}`}>
       <Label label={label} hint={hint} />
@@ -26,11 +27,11 @@ const RichEditor = ({ label, hint, onChange, className }) => {
             italic: { className: 'bordered-option-classname' },
             underline: { className: 'bordered-option-classname' },
             strikethrough: { className: 'bordered-option-classname' },
-            code: { className: 'bordered-option-classname' }
+            code: { className: 'bordered-option-classname' },
           },
           blockType: {
-            className: 'bordered-option-classname'
-          }
+            className: 'bordered-option-classname',
+          },
         }}
       />
     </div>
@@ -41,7 +42,7 @@ RichEditor.propTypes = {
   field: PropTypes.instanceOf(Object),
   label: PropTypes.string,
   hint: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
 }
 
 export default RichEditor
