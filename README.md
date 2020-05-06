@@ -6,6 +6,11 @@ npm install --save @ocupop/4p-common
 
 ## Commands
   `yarn start`: rolls up the `src` directory and watches for changes
+  
+  `yarn test`: Tests the components using jest
+
+  `yarn build`: Compiles the components for distribution
+
 
 ## Components
 ### Fields
