@@ -37,10 +37,26 @@ class Example extends Component {
 ```
 
 ## Developing
-### src/
+### ./
 Where our common components will be setup and created. You'll want to run `yarn start` to roll the changes each time there are updates to them
 
+You can either develop within the `/example` directory which links to the repo within it's package file.
+
+It's also possible to use [npm link](https://docs.npmjs.com/cli/link.html) and develop against this project within a different project.
+
+### Example
+```bash
+## 4p-common project
+# Running this will create a global symbolic link
+npm link
+
+## 4p-admin project
+# After the global symbolic link is create, we can tell npm to reference it
+npm link @ocupop/4p-common
+```
+
 ---
+
 ### example/
 A sandbox within this project to develop against. We pull components in from the `src/` directory and demonstrate how they're used. To develop, within this directory run `yarn start` to start the application. Note that the root level component directory needs to be watching for component changes.
 

@@ -29,7 +29,6 @@ const formatGroupLabel = data => (
 
 const CreateSelect = ({
   className,
-  form,
   field,
   hint,
   placeholder,

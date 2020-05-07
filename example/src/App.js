@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
-import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput, EmailInput, PhoneInput} from '4p-common'
+import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput, CreateSelect, EmailInput, PhoneInput} from '4p-common'
 import FormikDebug from './components/FormikDebug'
 import { convertToRaw } from 'draft-js'
 
@@ -71,6 +71,20 @@ const App = () => {
               ]}
               onChange={value => setFieldValue("selectInput", value)}
               label="Select Input"
+            />
+            <Field
+              name="createSelect"
+              type="text"
+              component={CreateSelect}
+              options={[
+                {label: "label 1", value: "l1"},
+                {label: "label 2", value: "l2"},
+                {label: "label 3", value: "l3"}
+              ]}
+              isMulti
+              isSearchable
+              onChange={(value) => setFieldValue('createSelect', value)}
+              label="Create Select"
             />
             <Field
               name="richInput"
