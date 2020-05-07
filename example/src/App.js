@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Formik, Field, Form } from 'formik'
 import * as Yup from 'yup'
 // Exported Components
-import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput, CreateSelect, EmailInput, PhoneInput} from '4p-common'
+import {TextInput, TextArea, RichEditor, NumberInput, SwitchInput, SelectInput, CreateSelect, EmailInput, PhoneInput, CurrencyInput} from '4p-common'
 import FormikDebug from './components/FormikDebug'
 import { convertToRaw } from 'draft-js'
 
@@ -103,6 +103,16 @@ const App = () => {
               component={NumberInput}
               onChange={value => setFieldValue("numberInput", value)}
               placeholder="0"
+              maskOptions={{ allowDecimal: false, requireDecimal: false }}
+            /> 
+            <Field
+              className="mb-0"
+              name="currencyInput"
+              label="Currency Input"
+              type="text"
+              placeholder="$0.00"
+              component={CurrencyInput}
+              onChange={value => setFieldValue("currencyInput", value)}
               maskOptions={{ allowDecimal: false, requireDecimal: false }}
             /> 
             <Field

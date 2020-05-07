@@ -7,6 +7,7 @@ import RichEditor from './fields/RichEditor'
 import NumberInput from './fields/NumberInput'
 import PhoneInput from './fields/PhoneInput'
 import EmailInput from './fields/EmailInput'
+import CurrencyInput from './fields/CurrencyInput'
 
 export {
   TextInput,
@@ -18,4 +19,5 @@ export {
   NumberInput,
   PhoneInput,
   EmailInput,
+  CurrencyInput,
 }
