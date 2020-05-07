@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component Matches the snapshot 1`] = `
+<div
+  className="form-group textArea"
+>
+  <label
+    className="sr-only"
+  >
+    <span
+      className="mr-2"
+    />
+    <div
+      className="pt-1 ml-1 d-inline-block"
+    >
+      <i
+        className="ri-question-fill text-mid"
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onMouseEnter={[Function]}
+        onMouseLeave={[Function]}
+      />
+    </div>
+  </label>
+  <textarea
+    className="form-control "
+    name="textArea"
+    onChange={[Function]}
+    placeholder="foobar"
+    type="text"
+    value=""
+  />
+</div>
+`;
