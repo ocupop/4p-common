@@ -5,7 +5,7 @@ import Hint from './hint'
 const label = ({ hint, label }) => {
   return (
     <label className={label ? '' : 'sr-only'}>
-      <span className="mr-2">{label}</span>
+      <span>{label}</span>
       {hint && <Hint content={hint} />}
     </label>
   )
