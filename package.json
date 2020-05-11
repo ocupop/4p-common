@@ -65,16 +65,5 @@
   },
   "files": [
     "dist"
-  ],
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/index.js",
-      "!src/__test__/setupTest.js"
-    ],
-    "coverageReporters": [
-      "html"
-    ]
-  }
+  ]
 }

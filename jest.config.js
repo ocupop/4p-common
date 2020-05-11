@@ -5,4 +5,12 @@ module.exports = {
   setupFiles: [
     './setupTests.js',
   ],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.js',
+    '!src/index.js',
+  ],
+  coverageReporters: [
+    'html',
+  ],
 }
