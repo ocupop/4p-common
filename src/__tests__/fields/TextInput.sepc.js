@@ -1,5 +1,4 @@
-import React from "react";
-import { create } from "react-test-renderer";
+import React from 'react'
 import TextInput from '../../fields/TextInput'
 
 const mockFieldObject = {
@@ -13,19 +12,64 @@ const mockFieldObject = {
 const mockFormObject = {
   dirty: false,
   errors: {},
-  touched: false,
+  touched: {},
 }
-describe("TextInput component", () => {
-  test("Matches the snapshot", () => {
-    const textInput = create(<TextInput
+
+const labelValue = 'im a label!'
+const hintValue = 'im the hint!'
+
+describe('TextInput component', () => {
+  it('should render an input filed', () => {
+    const wrapper = shallow(<TextInput
       className="textInput"
-      hint="this is a hint"
+      hint={hintValue}
+      label={labelValue}
       type="text"
       placeholder="foobar"
       required
       field={mockFieldObject}
       form={mockFormObject}
-    />);
-    expect(textInput.toJSON()).toMatchSnapshot();
-  });
-});
+    />)
+    expect(wrapper.children('input')).toHaveLength(1)
+  })
+
+  it('renders the correct input and hint value', () => {
+    const wrapper = shallow(<TextInput
+      className="textInput"
+      hint={hintValue}
+      label={labelValue}
+      type="text"
+      placeholder="foobar"
+      required
+      field={mockFieldObject}
+      form={mockFormObject}
+    />)
+
+    expect(wrapper.find('label').prop('hint')).toEqual(hintValue)
+    expect(wrapper.find('label').prop('label')).toEqual(labelValue)
+  })
+
+  it('simulates a touched trigger', () => {
+    const wrapper = shallow(<TextInput
+      className="textInput"
+      hint={hintValue}
+      label={labelValue}
+      type="text"
+      placeholder="foobar"
+      required
+      field={mockFieldObject}
+      form={mockFormObject}
+    />)
+    expect(wrapper.find('.is-invalid')).toHaveLength(0)
+
+    wrapper.setProps({
+      form: {
+        dirty: false,
+        errors: { textInput: 'Required' },
+        touched: { textInput: true },
+      },
+    })
+
+    expect(wrapper.find('.is-invalid')).toHaveLength(1)
+  })
+})
