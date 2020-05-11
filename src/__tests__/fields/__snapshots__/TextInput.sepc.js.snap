@@ -1,15 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component Matches the snapshot 1`] = `
+exports[`TextInput component Matches the snapshot 1`] = `
 <div
   className="form-group textInput"
 >
   <label
     className="sr-only"
   >
-    <span
-      className="mr-2"
-    />
+    <span />
     <div
       className="pt-1 ml-1 d-inline-block"
     >

@@ -40,6 +40,7 @@
     "@ocupop/eslint-config": "0.0.12",
     "@svgr/rollup": "^2.4.1",
     "babel-core": "^6.26.3",
+    "babel-jest": "^26.0.1",
     "babel-plugin-external-helpers": "^6.22.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
