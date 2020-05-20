@@ -1,3 +1,5 @@
+import react from 'react'
+import reactDom from 'react-dom'
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
@@ -41,8 +43,15 @@ export default {
         'react',
       ],
       exclude: 'node_modules/**',
+      plugins: ['external-helpers'],
     }),
     resolve(),
-    commonjs(),
+    commonjs({
+      include: 'node_modules/**',
+      namedExports: {
+        react: Object.keys(react),
+        'react-dom': Object.keys(reactDom),
+      },
+    }),
   ],
 }
