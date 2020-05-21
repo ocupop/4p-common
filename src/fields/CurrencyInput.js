@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Skeleton from 'react-loading-skeleton'
 import PropTypes from 'prop-types'
-import Label from './label'
 import MaskedInput from 'react-text-mask'
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
+import Label from './label'
 
 const defaultMaskOptions = {
   prefix: '$',
@@ -15,7 +16,7 @@ const defaultMaskOptions = {
   integerLimit: 3, // limit length of integer numbers
   requireDecimal: false,
   allowNegative: false,
-  allowLeadingZeroes: false
+  allowLeadingZeroes: false,
 }
 
 const CurrencyInput = ({
@@ -28,25 +29,46 @@ const CurrencyInput = ({
   required,
   field,
   onChange,
-  form: { errors, touched }
+  form: { errors, touched },
 }) => {
-  const status = touched[field.name] && errors[field.name] ? `is-invalid` : ``
+  const [loading, setLoading] = useState()
+  const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
   const currencyMask = createNumberMask({
     ...defaultMaskOptions,
-    ...maskOptions
+    ...maskOptions,
   })
+
+  useEffect(() => {
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+    return () => {}
+  }, [])
+
   return (
     <div className={`form-group ${className}`}>
       <Label label={label} hint={hint} />
-      <MaskedInput
-        mask={currencyMask}
-        className={`form-control ${status}`}
-        placeholder={placeholder}
-        type={type}
-        required={required}
-        onChange={onChange}
-      />
-      {touched[field.name] && errors[field.name] && <div className="invalid-feedback">{errors[field.name]}</div>}
+      {loading ? (
+        <div>
+          <Skeleton height={35} />
+        </div>
+      ) : (
+        <div>
+          <MaskedInput
+            mask={currencyMask}
+            className={`form-control ${status}`}
+            placeholder={placeholder}
+            type={type}
+            required={required}
+            onChange={onChange}
+          />
+        </div>
+      )}
+      {touched[field.name] && errors[field.name] && (
+        <div className="invalid-feedback">{errors[field.name]}</div>
+      )}
     </div>
   )
 }
@@ -63,8 +85,8 @@ CurrencyInput.propTypes = {
     requireDecimal: PropTypes.bool,
     allowNegative: PropTypes.bool,
     allowLeadingZeroes: PropTypes.bool,
-    integerLimit: PropTypes.number
-  })
+    integerLimit: PropTypes.number,
+  }),
 }
 
 export default CurrencyInput

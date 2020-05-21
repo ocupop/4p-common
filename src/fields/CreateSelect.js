@@ -1,11 +1,12 @@
-import React from 'react'
-import Label from './label'
+import React, { useState, useEffect } from 'react'
+import Skeleton from 'react-loading-skeleton'
 import CreatableSelect from 'react-select/creatable'
+import Label from './label'
 
 const groupStyles = {
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'space-between'
+  justifyContent: 'space-between',
 }
 const groupBadgeStyles = {
   backgroundColor: '#EBECF0',
@@ -17,10 +18,10 @@ const groupBadgeStyles = {
   lineHeight: '1',
   minWidth: 1,
   padding: '0.16666666666667em 0.5em',
-  textAlign: 'center'
+  textAlign: 'center',
 }
 
-const formatGroupLabel = data => (
+const formatGroupLabel = (data) => (
   <div style={groupStyles}>
     <span>{data.label}</span>
     <span style={groupBadgeStyles}>{data.options.length}</span>
@@ -38,34 +39,53 @@ const CreateSelect = ({
   isSearchable,
   type,
   onChange,
-  options
+  options,
 }) => {
+  const [loading, setLoading] = useState()
+
+  useEffect(() => {
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+    return () => {}
+  }, [])
+
   return (
     <div className={`form-group ${className}`}>
       <Label label={label} hint={hint} />
-      <CreatableSelect
-        {...field}
-        type={type}
-        defaultValue={defaultValue}
-        formatGroupLabel={formatGroupLabel}
-        onChange={onChange}
-        placeholder={placeholder}
-        options={options}
-        isMulti={isMulti}
-        isSearchable={isSearchable}
-        isClearable
-        className="react-select-container"
-        classNamePrefix="react-select"
-        theme={theme => ({
-          ...theme,
-          borderRadius: 0,
-          colors: {
-            ...theme.colors,
-            primary25: '#EBECF0',
-            primary: '#172B4D'
-          }
-        })}
-      />
+      {loading ? (
+        <div>
+          <Skeleton height={35} />
+        </div>
+      ) : (
+        <div>
+          <CreatableSelect
+            {...field}
+            type={type}
+            defaultValue={defaultValue}
+            formatGroupLabel={formatGroupLabel}
+            onChange={onChange}
+            placeholder={placeholder}
+            options={options}
+            isMulti={isMulti}
+            isSearchable={isSearchable}
+            isClearable
+            className="react-select-container"
+            classNamePrefix="react-select"
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                primary25: '#EBECF0',
+                primary: '#172B4D'
+              }
+            })}
+          />
+        </div>
+      )}
     </div>
   )
 }

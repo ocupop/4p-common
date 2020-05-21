@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Skeleton from 'react-loading-skeleton'
 import Select from 'react-select'
 import Label from './label'
 
@@ -41,32 +42,51 @@ const SelectInput = ({
   onChange,
   options,
 }) => {
+  const [loading, setLoading] = useState()
+
+  useEffect(() => {
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+    return () => {}
+  }, [])
+
   return (
     <div className={`form-group ${className}`}>
       <Label label={label} hint={hint} />
-      <Select
-        {...field}
-        type={type}
-        defaultValue={defaultValue}
-        formatGroupLabel={formatGroupLabel}
-        onChange={onChange}
-        placeholder={placeholder}
-        options={options}
-        isMulti={isMulti}
-        isSearchable={isSearchable}
-        isClearable
-        className="react-select-container"
-        classNamePrefix="react-select"
-        theme={(theme) => ({
-          ...theme,
-          borderRadius: 0,
-          colors: {
-            ...theme.colors,
-            primary25: '#EBECF0',
-            primary: '#172B4D',
-          },
-        })}
-      />
+      {loading ? (
+        <div>
+          <Skeleton height={35} />
+        </div>
+      ) : (
+        <div>
+          <Select
+            {...field}
+            type={type}
+            defaultValue={defaultValue}
+            formatGroupLabel={formatGroupLabel}
+            onChange={onChange}
+            placeholder={placeholder}
+            options={options}
+            isMulti={isMulti}
+            isSearchable={isSearchable}
+            isClearable
+            className="react-select-container"
+            classNamePrefix="react-select"
+            theme={(theme) => ({
+              ...theme,
+              borderRadius: 0,
+              colors: {
+                ...theme.colors,
+                primary25: '#EBECF0',
+                primary: '#172B4D'
+              }
+            })}
+          />
+        </div>
+      )}
     </div>
   )
 }
