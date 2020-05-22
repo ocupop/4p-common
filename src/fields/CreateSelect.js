@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import CreatableSelect from 'react-select/creatable'
+import useLoading from '../common/hooks/useLoading'
 import Label from './label'
 
 const groupStyles = {
@@ -41,16 +42,8 @@ const CreateSelect = ({
   onChange,
   options,
 }) => {
-  const [loading, setLoading] = useState()
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   return (
     <div className={`form-group ${className}`}>
@@ -80,8 +73,8 @@ const CreateSelect = ({
               colors: {
                 ...theme.colors,
                 primary25: '#EBECF0',
-                primary: '#172B4D'
-              }
+                primary: '#172B4D',
+              },
             })}
           />
         </div>

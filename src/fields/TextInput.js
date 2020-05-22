@@ -4,22 +4,15 @@ import React, {
 } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import Label from './label'
+import useLoading from '../common/hooks/useLoading'
 
 const TextInput = (props) => {
-  const [loading, setLoading] = useState()
   const {
     className, hint, type, label, placeholder, required, field, form: { errors, touched },
   } = props
   const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   return (
     <div className={`form-group ${className}`}>

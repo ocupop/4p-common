@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import { Checkbox } from 'semantic-ui-react'
+import useLoading from '../common/hooks/useLoading'
 import Hint from './hint'
 
 const SwitchInput = ({
@@ -11,16 +12,8 @@ const SwitchInput = ({
 }) => {
   // deleting field.value, this throws an error with the Checkbox Element.
   delete field.value
-  const [loading, setLoading] = useState()
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   return (
     <div className={`form-group ${className}`}>

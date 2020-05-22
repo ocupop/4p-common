@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import MaskedInput from 'react-text-mask'
+import useLoading from '../common/hooks/useLoading'
 import Label from './label'
 
 const phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]
@@ -8,17 +9,9 @@ const phoneMask = ['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\
 const PhoneInput = ({
   className, hint, type, label, placeholder, required, field, form: { errors, touched },
 }) => {
-  const [loading, setLoading] = useState()
   const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   return (
     <div className={`form-group ${className}`}>

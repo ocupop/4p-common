@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-export const useLoading = () => {
+const useLoading = () => {
   const [loading, setLoading] = useState()
 
   useEffect(() => {
@@ -12,5 +12,7 @@ export const useLoading = () => {
     return () => {}
   }, [])
 
-  return { loading, setLoading }
+  return loading
 }
+
+export default useLoading

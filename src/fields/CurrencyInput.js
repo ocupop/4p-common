@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import PropTypes from 'prop-types'
 import MaskedInput from 'react-text-mask'
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
+import useLoading from '../common/hooks/useLoading'
 import Label from './label'
 
 const defaultMaskOptions = {
@@ -31,21 +32,13 @@ const CurrencyInput = ({
   onChange,
   form: { errors, touched },
 }) => {
-  const [loading, setLoading] = useState()
   const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
   const currencyMask = createNumberMask({
     ...defaultMaskOptions,
     ...maskOptions,
   })
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   return (
     <div className={`form-group ${className}`}>

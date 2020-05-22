@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
+import useLoading from '../common/hooks/useLoading'
 import Label from './label'
 
 const TextArea = ({
   className, label, hint, rows, placeholder, type, field, form: { errors, touched },
 }) => {
-  const [loading, setLoading] = useState()
   const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   return (
     <div className={`form-group ${className}`}>

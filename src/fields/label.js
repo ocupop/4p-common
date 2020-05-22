@@ -1,25 +1,15 @@
-import React, {
-  useState,
-  useEffect,
-} from 'react'
+import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import PropTypes from 'prop-types'
+import useLoading from '../common/hooks/useLoading'
 import Hint from './hint'
 
 const label = ({ hint, label }) => {
-  const [loading, setLoading] = useState()
 
-  useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-    return () => {}
-  }, [])
+  const loading = useLoading()
 
   const skeletonStyles = {
-    marginBottom: '5px',
+    marginBottom: '100px',
   }
 
   return (
@@ -30,7 +20,7 @@ const label = ({ hint, label }) => {
         </div>
       ) : (
         <div>
-          <label className={label ? '' : 'sr-only'}>
+          <label className={label ? 'test' : 'sr-only'}>
             <span>{label}</span>
             {hint && <Hint content={hint} />}
           </label>
