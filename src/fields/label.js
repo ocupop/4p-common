@@ -6,7 +6,7 @@ import Hint from './hint'
 
 const label = ({ hint, label }) => {
 
-  const loading = useLoading()
+  const [loading] = useLoading()
 
   const skeletonStyles = {
     marginBottom: '100px',

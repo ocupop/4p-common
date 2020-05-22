@@ -9,7 +9,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 const RichEditor = ({
   label, hint, onChange, className,
 }) => {
-  const loading = useLoading()
+  const [loading] = useLoading()
 
   return (
     <div className={`form-group ${className}`}>
@@ -23,6 +23,7 @@ const RichEditor = ({
           editorClassName="border pl-3 form-control-lg"
           toolbarClassName="wysiwyg-toolbar-absolute"
           onEditorStateChange={onChange}
+          stripPastedStyles="true"
           // onContentStateChange={onChange}
           // onChange={onChange}
           toolbar={{
@@ -32,11 +33,11 @@ const RichEditor = ({
               bold: { className: 'bordered-option-classname' },
               italic: { className: 'bordered-option-classname' },
               underline: { className: 'bordered-option-classname' },
-              strikethrough: { className: 'bordered-option-classname' },
+              strikethrough: { className: 'bordered-option-classname' }
             },
             blockType: {
-              className: 'bordered-option-classname',
-            },
+              className: 'bordered-option-classname'
+            }
           }}
         />
       )}

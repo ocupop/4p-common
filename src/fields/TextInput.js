@@ -12,7 +12,7 @@ const TextInput = (props) => {
   } = props
   const status = touched[field.name] && errors[field.name] ? 'is-invalid' : ''
 
-  const loading = useLoading()
+  const [loading] = useLoading()
 
   return (
     <div className={`form-group ${className}`}>
