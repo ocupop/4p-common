@@ -1,6 +1,8 @@
 import React from 'react'
+import Skeleton from 'react-loading-skeleton'
 import MaskedInput from 'react-text-mask'
 import createNumberMask from 'text-mask-addons/dist/createNumberMask'
+import useLoading from '../common/hooks/useLoading'
 import Label from './label'
 
 const defaultMaskOptions = {
@@ -34,18 +36,30 @@ const NumberInput = ({
     ...maskOptions,
   })
 
+  const loading = useLoading()
+
   return (
     <div className={`form-group ${className}`}>
       <Label label={label} hint={hint} />
-      <MaskedInput
-        mask={numberMask}
-        className={`form-control ${status}`}
-        {...field}
-        placeholder={placeholder}
-        type={type}
-        required={required}
-      />
-      {touched[field.name] && errors[field.name] && <div className="invalid-feedback">{errors[field.name]}</div>}
+      {loading ? (
+        <div>
+          <Skeleton height={35} />
+        </div>
+      ) : (
+        <div>
+          <MaskedInput
+            mask={numberMask}
+            className={`form-control ${status}`}
+            {...field}
+            placeholder={placeholder}
+            type={type}
+            required={required}
+          />
+        </div>
+      )}
+      {touched[field.name] && errors[field.name] && (
+        <div className="invalid-feedback">{errors[field.name]}</div>
+      )}
     </div>
   )
 }

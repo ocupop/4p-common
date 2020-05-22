@@ -22,7 +22,7 @@ const App = () => {
   return (
     <section>
       <div className="container">
-      <h1>hello world</h1>
+      <h1>Form Sandbox</h1>
       <Formik
         enableReinitialize
         initialValues={initialValues}
@@ -104,7 +104,7 @@ const App = () => {
               onChange={value => setFieldValue("numberInput", value)}
               placeholder="0"
               maskOptions={{ allowDecimal: false, requireDecimal: false }}
-            /> 
+            />
             <Field
               className="mb-0"
               name="currencyInput"
@@ -114,7 +114,7 @@ const App = () => {
               component={CurrencyInput}
               onChange={value => setFieldValue("currencyInput", value)}
               maskOptions={{ allowDecimal: false, requireDecimal: false }}
-            /> 
+            />
             <Field
               name="emailInput"
               type="text"
