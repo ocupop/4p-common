@@ -52,6 +52,7 @@ npm link
 
 ## 4p-admin project
 # After the global symbolic link is create, we can tell npm to reference it
+rm -rf node_modules/@ocupop/4p-common
 npm link @ocupop/4p-common
 ```
 
