@@ -91,19 +91,3 @@ const main = async () => {
 }
 
 main()
-
-
-// cd /Users/cdnicoll/gitrepo/_ocupop/4p-common
-// yarn link
-// yarn install
-// cd node_modules/react
-// yarn link
-// cd ../../node_modules/react-dom
-// yarn link
-// cd /Users/cdnicoll/gitrepo/_ocupop/4p-admin
-// rm -rf node_modules/@ocupop/4p-common
-// rm -rf node_modules/react
-// rm -rf node_modules/react-dom
-// yarn link @ocupop/4p-common
-// yarn link react
-// yarn link react-dom
