@@ -21,34 +21,24 @@ const setupLink = async () => {
     ])
     .then(async (value) => {
       const { mainProjectPath } = value
+      // some cleanup first
+      // await shelljs.exec('yarn unlink @ocupop/4p-common ; yarn unlink react ; yarn unlink react-dom')
       // link the main project
-      cmd.execSync('yarn link', {
-        stdio: 'inherit',
-      })
+      await shelljs.exec('yarn link')
       // sanity check on yarn
-      cmd.execSync('yarn', {
-        stdio: 'inherit',
-      })
+      await shelljs.exec('yarn install --force')
       // link react
-      cmd.execSync('cd node_modules/react ; yarn link', {
-        stdio: 'inherit',
-      })
+      await shelljs.cd('node_modules/react')
+      await shelljs.exec('yarn link')
       // link react-dom
-      cmd.execSync('cd ../../node_modules/react-dom ; yarn link', {
-        stdio: 'inherit',
-      })
+      await shelljs.cd('../../node_modules/react-dom')
+      await shelljs.exec('yarn link')
       // ---- setup link for main project
-      cmd.execSync(`cd ${mainProjectPath}`, {
-        stdio: 'inherit',
-      })
+      await shelljs.cd(mainProjectPath)
       // prep/clean up
-      cmd.execSync('rm -rf node_modules/@ocupop/4p-common ; rm -rf node_modules/react ; rm -rf node_modules/react-dom', {
-        stdio: 'inherit',
-      })
+      await shelljs.exec('rm -rf node_modules/@ocupop/4p-common ; rm -rf node_modules/react ; rm -rf node_modules/react-dom')
       // setup links
-      cmd.execSync('yarn link @ocupop/4p-common ; yarn link react ; yarn link react-dom', {
-        stdio: 'inherit',
-      })
+      await shelljs.exec('yarn link @ocupop/4p-common ; yarn link react ; yarn link react-dom')
     })
 }
 
@@ -65,8 +55,9 @@ const unlink = async () => {
       const { mainProjectPath } = value
       // ---- setup link for main project
       await shelljs.cd(mainProjectPath)
-      await shelljs.exec('rm -rf node_modules/@ocupop/4p-common ; rm -rf node_modules/react ; rm -rf node_modules/react-dom ; rm yarn.lock')
-      await shelljs.exec('yarn install')
+      // await shelljs.exec('rm -rf node_modules/@ocupop/4p-common ; rm -rf node_modules/react ; rm -rf node_modules/react-dom ; rm yarn.lock')
+      await shelljs.exec('yarn unlink @ocupop/4p-common ; yarn unlink react ; yarn unlink react-dom')
+      await shelljs.exec('yarn install --force')
     })
 }
 
