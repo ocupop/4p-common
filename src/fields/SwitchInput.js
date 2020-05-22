@@ -13,7 +13,7 @@ const SwitchInput = ({
   // deleting field.value, this throws an error with the Checkbox Element.
   delete field.value
 
-  const loading = useLoading()
+  const [loading] = useLoading()
 
   return (
     <div className={`form-group ${className}`}>

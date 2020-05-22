@@ -43,7 +43,7 @@ const CreateSelect = ({
   options,
 }) => {
 
-  const loading = useLoading()
+  const [loading] = useLoading()
 
   return (
     <div className={`form-group ${className}`}>
