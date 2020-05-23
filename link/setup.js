@@ -21,8 +21,6 @@ const setupLink = async () => {
     ])
     .then(async (value) => {
       const { mainProjectPath } = value
-      // some cleanup first
-      // await shelljs.exec('yarn unlink @ocupop/4p-common ; yarn unlink react ; yarn unlink react-dom')
       // link the main project
       await shelljs.exec('yarn link')
       // sanity check on yarn
