@@ -23,8 +23,8 @@ const RichEditor = ({
           editorClassName="border pl-3 form-control-lg"
           toolbarClassName="wysiwyg-toolbar-absolute"
           onEditorStateChange={onChange}
-            stripPastedStyles
-            placeholder="Write something here ..."
+          stripPastedStyles
+          placeholder="Write something here ..."
           // onContentStateChange={onChange}
           // onChange={onChange}
           toolbar={{
@@ -34,11 +34,11 @@ const RichEditor = ({
               bold: { className: 'bordered-option-classname' },
               italic: { className: 'bordered-option-classname' },
               underline: { className: 'bordered-option-classname' },
-              strikethrough: { className: 'bordered-option-classname' }
+              strikethrough: { className: 'bordered-option-classname' },
             },
             blockType: {
-              className: 'bordered-option-classname'
-            }
+              className: 'bordered-option-classname',
+            },
           }}
         />
       )}
