@@ -22,10 +22,12 @@ const RichEditor = ({
         <Editor
           editorClassName="border pl-3 form-control-lg"
           toolbarClassName="wysiwyg-toolbar-absolute"
+          stripPastedStyles
+          // editorState={}
           onEditorStateChange={onChange}
-          stripPastedStyles="true"
           // onContentStateChange={onChange}
           // onChange={onChange}
+          placeholder="Write something here ..."
           toolbar={{
             options: ['inline', 'blockType'],
             inline: {
