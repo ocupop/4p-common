@@ -23,6 +23,7 @@ const RichEditor = ({
           editorClassName="border pl-3 form-control-lg"
           toolbarClassName="wysiwyg-toolbar-absolute"
           onEditorStateChange={onChange}
+          stripPastedStyles
           // onContentStateChange={onChange}
           // onChange={onChange}
           toolbar={{
