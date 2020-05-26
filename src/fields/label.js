@@ -9,7 +9,7 @@ const label = ({ hint, label }) => {
   const [loading] = useLoading()
 
   const skeletonStyles = {
-    marginBottom: '10px',
+    marginBottom: '100px',
   }
 
   return (
