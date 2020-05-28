@@ -1,0 +1,28 @@
+{
+  "name": "4p-common-example",
+  "homepage": "https://cdnicoll.github.io/4p-common",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "4p-common": "link:..",
+    "bootstrap": "^4.4.1",
+    "draft-js": "^0.11.5",
+    "formik": "^2.1.4",
+    "prop-types": "^15.6.2",
+    "react": "link:../node_modules/react",
+    "react-dom": "^16.12.0",
+    "react-scripts": "^1.1.4",
+    "semantic-ui-react": "^0.88.2",
+    "yup": "^0.28.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "checkLint": "eslint '**/*.js' --ignore-pattern node_modules/",
+    "lint": "eslint --fix '**/*.js' --ignore-pattern node_modules/"
+  },
+  "devDependencies": {}
+}
