@@ -31,20 +31,7 @@ export default {
     }),
     url(),
     svgr(),
-    babel({
-      babelrc: false,
-      comments: true,
-      sourceMap: true,
-      presets: [
-        ['env', {
-          modules: false,
-        }],
-        'stage-0',
-        'react',
-      ],
-      exclude: 'node_modules/**',
-      plugins: ['external-helpers'],
-    }),
+    babel(),
     resolve(),
     commonjs({
       include: 'node_modules/**',
