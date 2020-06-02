@@ -20,7 +20,7 @@ const label = ({ hint, label }) => {
         </div>
       ) : (
         <div>
-          <label className={label ? 'test2' : 'sr-only'}>
+          <label className={label ? '' : 'sr-only'}>
             <span>{label}</span>
             {hint && <Hint content={hint} />}
           </label>
