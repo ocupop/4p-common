@@ -2,19 +2,15 @@ import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import PropTypes from 'prop-types'
 import { Editor } from 'react-draft-wysiwyg'
-// import { EditorState } from 'draft-js'
 import useLoading from '../common/hooks/useLoading'
 import Label from './label'
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 const RichEditor = ({
-  className, label, hint, onChange, value
+  className, label, hint, onChange, value,
 }) => {
   const [loading] = useLoading()
-
-  // const contentState = value
-  // const editorState = EditorState.createWithContent(contentState)
-  // console.log(contentState)
+  const editorState = value
 
   return (
     <div className={`form-group ${className}`}>
@@ -30,7 +26,7 @@ const RichEditor = ({
           placeholder="Write something here..."
           onEditorStateChange={onChange}
           stripPastedStyles
-          // editorState={contentState}
+          editorState={editorState}
           // onContentStateChange={onChange}
           // onChange={onChange}
           toolbar={{
