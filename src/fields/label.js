@@ -13,20 +13,20 @@ const label = ({ hint, label }) => {
   }
 
   return (
-    <div>
+    <>
       {loading ? (
         <div style={skeletonStyles}>
           <Skeleton height={22} width={130} />
         </div>
       ) : (
-        <div>
+        <>
           <label className={label ? '' : 'sr-only'}>
             <span>{label}</span>
             {hint && <Hint content={hint} />}
           </label>
-        </div>
+        </>
       )}
-    </div>
+    </>
   )
 }
 
