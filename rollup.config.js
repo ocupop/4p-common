@@ -7,8 +7,10 @@ import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
 import svgr from '@svgr/rollup'
+import * as draftJs from 'draft-js'
 
 import pkg from './package.json'
+
 
 export default {
   input: 'src/index.js',
@@ -51,6 +53,7 @@ export default {
       namedExports: {
         react: Object.keys(react),
         'react-dom': Object.keys(reactDom),
+        'draft-js': Object.keys(draftJs)
       },
     }),
   ],
