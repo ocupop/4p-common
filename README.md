@@ -42,18 +42,17 @@ Where our common components will be setup and created. You'll want to run `yarn 
 
 You can either develop within the `/example` directory which links to the repo within it's package file.
 
-It's also possible to use [npm link](https://docs.npmjs.com/cli/link.html) and develop against this project within a different project.
+It's also possible to run run `yarn link:common` which allows us to work in another project. (Note, if it fails make sure to run `yarn` within the `link/` directory
 
 ### Example
 ```bash
 ## 4p-common project
-# Running this will create a global symbolic link
-npm link
-
-## 4p-admin project
-# After the global symbolic link is create, we can tell npm to reference it
-rm -rf node_modules/@ocupop/4p-common
-npm link @ocupop/4p-common
+4p-common [feature/webpack] % yarn link:common
+yarn run v1.17.3
+$ node -r esm ./link/setup.js
+? What do you want to do (Use arrow keys)
+❯ Link Project
+  Unlink Porject
 ```
 
 ---
