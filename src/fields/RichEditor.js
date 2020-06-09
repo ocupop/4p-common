@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import { Editor } from 'react-draft-wysiwyg'
 import useLoading from '../common/hooks/useLoading'
 import Label from './label'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+// TODO: We might have to find a better way to include this
+// Issue for tracking: https://github.com/ocupop/4p-common/issues/14
+// import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 const RichEditor = ({
   label, hint, onChange, className,
