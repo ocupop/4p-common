@@ -3,11 +3,12 @@ import TextArea from './fields/TextArea'
 import SwitchInput from './fields/SwitchInput'
 import SelectInput from './fields/SelectInput'
 import CreateSelect from './fields/CreateSelect'
-import RichEditor from './fields/RichEditor'
+// import RichEditor from './fields/RichEditor'
 import NumberInput from './fields/NumberInput'
 import PhoneInput from './fields/PhoneInput'
 import EmailInput from './fields/EmailInput'
 import CurrencyInput from './fields/CurrencyInput'
+import SentryTransport from './common/logger/SentryTransport'
 
 export {
   TextInput,
@@ -15,9 +16,10 @@ export {
   SwitchInput,
   SelectInput,
   CreateSelect,
-  RichEditor,
+  // RichEditor,
   NumberInput,
   PhoneInput,
   EmailInput,
   CurrencyInput,
+  SentryTransport,
 }
