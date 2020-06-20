@@ -1,15 +1,21 @@
 import { useState, useEffect } from 'react'
 
-const useLoading = () => {
+const useLoading = (useSkeleton) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    setLoading(true)
-
-    setTimeout(() => {
+    if (useSkeleton === 'false') {
       setLoading(false)
-    }, 1000)
-    return () => {}
+    } else if (useSkeleton === 'infinite') {
+      setLoading(true)
+    } else {
+      setLoading(true)
+
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)
+      return () => {}
+    }
   }, [])
 
   return [loading, setLoading]
