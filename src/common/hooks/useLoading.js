@@ -4,17 +4,20 @@ const useLoading = (useSkeleton) => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (useSkeleton === 'false') {
-      setLoading(false)
-    } else if (useSkeleton === 'infinite') {
-      setLoading(true)
-    } else {
-      setLoading(true)
-
-      setTimeout(() => {
+    switch (useSkeleton) {
+      case 'false':
         setLoading(false)
-      }, 1000)
-      return () => {}
+        break
+      case 'infinite':
+        setLoading(true)
+        break
+      default:
+        setLoading(true)
+
+        setTimeout(() => {
+          setLoading(false)
+        }, 1000)
+        return () => { }
     }
   }, [])
 
